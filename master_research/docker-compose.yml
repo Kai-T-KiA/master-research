@@ -1,0 +1,24 @@
+version: '3'
+services:
+  datascience:
+    build: .
+    ports:
+      - "8888:8888"
+    volumes:
+      # - ./workspace:/workspace
+      - /data00/kai16/master_research/workspace:/home/jovyan/workspace
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - NB_UID=1006
+      - NB_GID=1006
+    user: '1006:1006'
+    command: |
+      bash -c "chown -R 1006:1006 /home/jovyan/workspace && \
+      jupyter lab --ip=0.0.0.0 --allow-root"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
