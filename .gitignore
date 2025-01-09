@@ -1,0 +1,17 @@
+# VSCode関連
+.vscode-server/
+.config/
+
+# キャッシュファイル
+.cache/
+
+# SSH関連
+.ssh/
+
+# 履歴ファイル
+.bash_history
+.wget-hsts
+
+# Jupyter Notebook関連
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
