@@ -1,12 +1,16 @@
 version: '3'
 services:
   datascience:
+    container_name: kai_space_for_master_research
     build: .
     ports:
       - "8888:8888"
     volumes:
-      # - ./workspace:/workspace
-      - /data00/kai16/master_research/workspace:/home/jovyan/workspace
+      #  ai-angels用のバインド処理
+      # - /data00/kai16/master_research/workspace:/home/jovyan/workspace
+
+      # jojo用のバインド処理
+      /home/kaikai/master-research/workspace:/home/jovyan/workspace
     environment:
       - JUPYTER_ENABLE_LAB=yes
       - NB_UID=1006
